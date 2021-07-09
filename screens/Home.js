@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, ImageBackground, Platform, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native'
 import MainTile from '../components/mainTile'
+import SquareTile from '../components/SquareTile'
 import LongTile from './LongTile'
 
 
@@ -18,9 +19,9 @@ const Home = () => {
             <ScrollView showsHorizontalScrollIndicator={Platform.OS=="web"?false:true} removeClippedSubviews={true} style={{position:"relative",zIndex:3, height:10}}   contentContainerStyle={{paddingTop:25,alignItems:"center",justifyContent:"center"}}>
                 <View style={{height:300}} />
                 <MainTile/>
-                <LongTile/>
-                <LongTile/>
-                <LongTile/>
+                <SquareTile/>
+                <SquareTile/>
+                <SquareTile/>
                 <LongTile/>
                 <LongTile/>
                 <LongTile/>
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     },
     backgroundImage:{
         position: "relative",
-        opacity: 0.7,
+        opacity: 0.8,
         flex: 1,
         resizeMode:"cover",
         justifyContent:"center",
