@@ -15,6 +15,7 @@ export default MainTile
 
 const styles = StyleSheet.create({
     mainImg:{
+        opacity: 1,
         height: 200,
         width: Platform.OS=="web"?400:330,
         resizeMode:"cover",

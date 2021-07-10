@@ -1,12 +1,12 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Entypo } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
 
 
-const BottomNav = () => {
+const BottomNav = ({navigation}) => {
   return (
     <LinearGradient
       start={{ x: 0, y: 0 }}
@@ -15,26 +15,26 @@ const BottomNav = () => {
       style={styles.container}
     >
     <View style={styles.iconWrapper}>
-        <View style={{alignItems:"center"}}>
+        <TouchableOpacity onPress={()=>navigation.navigate("Home")} style={{alignItems:"center"}}>
         <Entypo name="home" size={24} color="white" />
         <Text style={{color:"white"}}>Home</Text>
-        </View>
-        <View style={{alignItems:"center"}}>
-        <Entypo name="moon" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate("Sleep")} style={{alignItems:"center"}}>
+        <Entypo  name="moon" size={24} color="white" />
         <Text style={{color:"white"}}>Sleep</Text>
-        </View>
-        <View style={{alignItems:"center"}}>
+        </TouchableOpacity>
+        <TouchableOpacity style={{alignItems:"center"}}>
         <Entypo name="circle" size={24} color="white" />
         <Text style={{color:"white"}}>Meditate</Text>
-        </View>
-        <View style={{alignItems:"center"}}>
+        </TouchableOpacity>
+        <TouchableOpacity style={{alignItems:"center"}}>
         <Foundation name="music" size={24} color="white" />
         <Text style={{color:"white"}}>Music</Text>
-        </View>
-        <View style={{alignItems:"center"}}>
+        </TouchableOpacity>
+        <TouchableOpacity style={{alignItems:"center"}}>
         <AntDesign name="search1" size={24} color="white" />
         <Text style={{color:"white"}}>More</Text>
-        </View>
+        </TouchableOpacity>
     </View>
     </LinearGradient>
   );

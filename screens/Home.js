@@ -17,9 +17,10 @@ import { LinearGradient } from "expo-linear-gradient";
 import BottomNav from "../components/BottomNav";
 
 
-const Home = (opaprop=1) => {
+const Home = ({navigation}) => {
+  
   const [opaci, setopaci] = useState(1);
-  opaprop=opaci
+  
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
       <StatusBar style="light" />
@@ -40,7 +41,7 @@ const Home = (opaprop=1) => {
             style={[styles.logo,{opacity:opaci}]}
             source={{ uri: "https://www.calm.com/_n/images/calm-logo.png" }}
           />
-          <ScrollView
+          <ScrollView style={{opacity:1}}
             onScroll={(e) => {
               Platform.OS == "web"
                 ? "auto"
@@ -159,7 +160,7 @@ const Home = (opaprop=1) => {
               <LongTile />
             </ScrollView>
           </ScrollView>
-          <BottomNav/>
+          <BottomNav navigation={navigation}/>
         </ImageBackground>
       </LinearGradient>
     </SafeAreaView>
