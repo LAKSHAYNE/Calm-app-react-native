@@ -15,9 +15,9 @@ import SquareTile from "../components/SquareTile";
 import LongTile from "./LongTile";
 import { LinearGradient } from "expo-linear-gradient";
 
-const Home = () => {
+const Home = (opaprop=1) => {
   const [opaci, setopaci] = useState(1);
-
+  opaprop=opaci
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
       <StatusBar style="light" />
@@ -35,7 +35,7 @@ const Home = () => {
           style={styles.backgroundImage}
         >
           <Image
-            style={styles.logo}
+            style={[styles.logo,{opacity:opaci}]}
             source={{ uri: "https://www.calm.com/_n/images/calm-logo.png" }}
           />
           <ScrollView
@@ -46,7 +46,7 @@ const Home = () => {
                     opaci >= 0
                       ? 1 - e.nativeEvent.contentOffset.y * 0.003030303030303
                       : 0
-                  );
+                  ); 
             }}
             showsHorizontalScrollIndicator={Platform.OS == "web" ? false : true}
             removeClippedSubviews={true}
@@ -180,6 +180,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
+    opacity: 1,
     height: 100,
     width: 100,
     resizeMode: "contain",
