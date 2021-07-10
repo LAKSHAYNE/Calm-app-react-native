@@ -14,6 +14,8 @@ import MainTile from "../components/mainTile";
 import SquareTile from "../components/SquareTile";
 import LongTile from "./LongTile";
 import { LinearGradient } from "expo-linear-gradient";
+import BottomNav from "../components/BottomNav";
+
 
 const Home = (opaprop=1) => {
   const [opaci, setopaci] = useState(1);
@@ -157,6 +159,7 @@ const Home = (opaprop=1) => {
               <LongTile />
             </ScrollView>
           </ScrollView>
+          <BottomNav/>
         </ImageBackground>
       </LinearGradient>
     </SafeAreaView>
