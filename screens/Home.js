@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import {
   Image,
   ImageBackground,
@@ -20,7 +20,7 @@ import BottomNav from "../components/BottomNav";
 const Home = ({navigation}) => {
   
   const [opaci, setopaci] = useState(1);
-  
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
       <StatusBar style="light" />
@@ -174,6 +174,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     backgroundColor: "black",
+    marginBottom:0
   },
   backgroundImage: {
     position: "relative",

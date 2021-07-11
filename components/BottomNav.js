@@ -31,7 +31,7 @@ const BottomNav = ({navigation}) => {
         <Foundation name="music" size={24} color="white" />
         <Text style={{color:"white"}}>Music</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:"center"}}>
+        <TouchableOpacity onPress={()=>navigation.navigate("More")} style={{alignItems:"center"}}>
         <AntDesign name="search1" size={24} color="white" />
         <Text style={{color:"white"}}>More</Text>
         </TouchableOpacity>
