@@ -2,6 +2,8 @@ import React, { useLayoutEffect } from "react";
 import {
   ImageBackground,
   Platform,
+  SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -10,6 +12,9 @@ import {
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { TextInput } from "react-native";
+import MoreTile from "../components/MoreTile";
+import BottomNav from "../components/BottomNav";
 
 const More = ({ navigation }) => {
   useLayoutEffect(() => {
@@ -27,9 +32,12 @@ const More = ({ navigation }) => {
             backgroundColor: "transparent",
           }}
         >
-          <View style={[{flexDirection:"row"}]}>
+          <View style={[{ flexDirection: "row" }]}>
             {Platform.OS === "web" && (
-              <TouchableOpacity onPress={navigation.goBack} style={{justifyContent:"center"}} >
+              <TouchableOpacity
+                onPress={navigation.goBack}
+                style={{ justifyContent: "center" }}
+              >
                 <Ionicons name="caret-back" size={24} color="black" />
               </TouchableOpacity>
             )}
@@ -49,23 +57,47 @@ const More = ({ navigation }) => {
   }, [navigation]);
 
   return (
+      <SafeAreaView style={styles.container}>
     <ImageBackground
       imageStyle={{ opacity: 0.5 }}
       source={{
         uri: "https://res.cloudinary.com/calm-com/image/upload/v1582139698/jasper-lake.jpg",
       }}
       style={styles.background}
-    ></ImageBackground>
+    >
+        <TextInput style={styles.textInput} placeholder="Search" />
+        <ScrollView
+          contentContainerStyle={{alignItems: "center" }}
+          style={styles.scroll}
+        >
+          <MoreTile />
+          <MoreTile />
+          <MoreTile />
+          <MoreTile />
+          <MoreTile />
+          <MoreTile />
+          <MoreTile />
+          <MoreTile />
+          <MoreTile />
+          <MoreTile />
+          <MoreTile />
+        </ScrollView>
+        <BottomNav navigation={navigation} />
+    </ImageBackground>
+      </SafeAreaView>
   );
 };
 
 export default More;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   background: {
     resizeMode: "cover",
-    flex: 1,
     backgroundColor: "black",
+    alignItems:"center",
   },
   iconWrapper: {
     justifyContent: "center",
@@ -74,5 +106,21 @@ const styles = StyleSheet.create({
     height: 35,
     width: 35,
     backgroundColor: "black",
+  },
+  textInput: {
+    marginTop: 65,
+    width: Platform.OS == "web" ? "50%" : 330,
+    borderColor: "transparent",
+    backgroundColor: "#ECECEC",
+    borderWidth: 1,
+    padding: 10,
+    color: "grey",
+    borderRadius: 30,
+  },
+  scroll: {
+    position: "relative",
+    width: "100%",
+    marginTop: 10,
+    width: Platform.OS == "web" ? "100%" : 330,
   },
 });

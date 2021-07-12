@@ -41,7 +41,7 @@ const Home = ({navigation}) => {
             style={[styles.logo,{opacity:opaci}]}
             source={{ uri: "https://www.calm.com/_n/images/calm-logo.png" }}
           />
-          <ScrollView style={{opacity:1}}
+          <ScrollView 
             onScroll={(e) => {
               Platform.OS == "web"
                 ? "auto"
@@ -52,7 +52,7 @@ const Home = ({navigation}) => {
                   ); 
             }}
             showsHorizontalScrollIndicator={Platform.OS == "web" ? false : true}
-            removeClippedSubviews={true}
+    
             style={{ position: "relative", zIndex: 3, height: 10 }}
             contentContainerStyle={{
               paddingTop: 25,
