@@ -15,6 +15,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { TextInput } from "react-native";
 import MoreTile from "../components/MoreTile";
 import BottomNav from "../components/BottomNav";
+import { EvilIcons } from "@expo/vector-icons";
 
 const More = ({ navigation }) => {
   useLayoutEffect(() => {
@@ -57,17 +58,25 @@ const More = ({ navigation }) => {
   }, [navigation]);
 
   return (
-      <SafeAreaView style={styles.container}>
-    <ImageBackground
-      imageStyle={{ opacity: 0.5 }}
-      source={{
-        uri: "https://res.cloudinary.com/calm-com/image/upload/v1582139698/jasper-lake.jpg",
-      }}
-      style={styles.background}
-    >
-        <TextInput style={styles.textInput} placeholder="Search" />
+    <SafeAreaView style={styles.container}>
+      <ImageBackground
+        imageStyle={{ opacity: 0.5 }}
+        source={{
+          uri: "https://res.cloudinary.com/calm-com/image/upload/v1582139698/jasper-lake.jpg",
+        }}
+        style={styles.background}
+      >
+      
+        <View style={styles.searchArea}>
+          <EvilIcons name="search" size={24} color="grey" />
+          <TextInput style={[Platform.select({web:{
+            outlineWidth:0
+          }}),styles.textInput]} placeholder="Search" />
+        </View>
+    
         <ScrollView
-          contentContainerStyle={{alignItems: "center" }}
+          showsVerticalScrollIndicator={Platform.OS=="web"?false:true}
+          contentContainerStyle={{ alignItems: "center" }}
           style={styles.scroll}
         >
           <MoreTile />
@@ -83,8 +92,8 @@ const More = ({ navigation }) => {
           <MoreTile />
         </ScrollView>
         <BottomNav navigation={navigation} />
-    </ImageBackground>
-      </SafeAreaView>
+      </ImageBackground>
+    </SafeAreaView>
   );
 };
 
@@ -93,11 +102,14 @@ export default More;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:"black"
   },
   background: {
     resizeMode: "cover",
     backgroundColor: "black",
-    alignItems:"center",
+    alignItems: "center",
+    flex: 1,
+    justifyContent:"center"
   },
   iconWrapper: {
     justifyContent: "center",
@@ -108,18 +120,27 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   textInput: {
-    marginTop: 65,
-    width: Platform.OS == "web" ? "50%" : 330,
     borderColor: "transparent",
     backgroundColor: "#ECECEC",
-    borderWidth: 1,
+    flex: 1,
     padding: 10,
     color: "grey",
+    borderTopRightRadius:30,
+    borderBottomRightRadius:30,
+    color: "black"
+  },
+  searchArea: {
+    width: Platform.OS == "web" ? "50%" : 330,
     borderRadius: 30,
+    alignItems: "center",
+    paddingLeft:10 ,
+    marginTop: 65,
+    flexDirection: "row",
+    backgroundColor: "#ECECEC",
   },
   scroll: {
-    position: "relative",
-    width: "100%",
+    height: 0,
+    zIndex:0,
     marginTop: 10,
     width: Platform.OS == "web" ? "100%" : 330,
   },

@@ -28,10 +28,10 @@ const Home = ({navigation}) => {
         style={{ flex: 1 }}
         start={{ x: 0, y: 0 }}
         end={{ x: 0, y: 1 }}
-        colors={["#60B1E7","#6462E0"]}
+        colors={Platform.OS=="web"?["black","black"]:["#60B1E7","#6462E0"]}
       >
         <ImageBackground
-          imageStyle={{ opacity: opaci }}
+          imageStyle={Platform.OS=="web"?{opacity:0.5}:{ opacity: opaci }}
           source={{
             uri: "https://res.cloudinary.com/calm-com/image/upload/v1582139698/jasper-lake.jpg",
           }}
@@ -40,6 +40,10 @@ const Home = ({navigation}) => {
           <Image
             style={[styles.logo,{opacity:opaci}]}
             source={{ uri: "https://www.calm.com/_n/images/calm-logo.png" }}
+          />
+          <Image
+            source={{uri:"http://clipart-library.com/img/1745052.gif"}}
+            style={[styles.flowingwater,{opacity:opaci}]}
           />
           <ScrollView 
             onScroll={(e) => {
@@ -51,9 +55,9 @@ const Home = ({navigation}) => {
                       : 0
                   ); 
             }}
+            
             showsHorizontalScrollIndicator={Platform.OS == "web" ? false : true}
-    
-            style={{ position: "relative", zIndex: 3, height: 10 }}
+            style={{ width:"100%",position: "relative", height: 10 }}
             contentContainerStyle={{
               paddingTop: 25,
               alignItems: "center",
@@ -193,4 +197,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 100,
   },
+  flowingwater:{
+    position: "absolute",
+    resizeMode:"cover",
+    width: "100%",
+    bottom: 0,
+    top:480
+  }
 });
