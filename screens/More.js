@@ -88,7 +88,7 @@ const More = ({ navigation }) => {
           <MoreTile />
           <MoreTile />
           <MoreTile />
-          <MoreTile />
+          <MoreTile /> 
           <MoreTile />
         </ScrollView>
         <BottomNav navigation={navigation} />
